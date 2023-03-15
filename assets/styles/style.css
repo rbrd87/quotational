@@ -1,0 +1,53 @@
+/* Sets the box size calculation to include padding/borders */
+* {
+    box-sizing: border-box;
+  }
+  
+  /* A list of variable for values repeadted several times */
+  :root {
+    --navy: #0a131f;
+    --gold: #b8811c;
+    --white: #fff;
+    --grey: #c0c0c0;
+    --background-color: #172536e7;
+  }
+  
+  /* Set the site font to Euclid Circular A */
+  body {
+    font-family: 'Euclid Circular A', sans-serif;
+    min-height: 100px;
+    overflow: hidden;
+  }
+  
+  /* Styles for the large jumbotron on homepage */
+  .custom-jumbotron {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    height: 90vh;
+    margin-bottom: 0px;
+    border-radius: 0;
+  }
+
+  .footer {
+    height: 5vh;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: cover;
+    background-color: var(--navy);
+    border-top: 10px solid var(--gold);
+  }
+
+  .copyright {
+    font-size: 0.8rem;
+    color: var(--grey);
+    background-color: var(--navy);
+    text-align: center;
+    height: 5vh;
+  }
