@@ -20,31 +20,53 @@ html {
 body {
   font-family: 'Euclid Circular A', sans-serif;
   min-height: 100px;
-  overflow: hidden;
+}
+
+h1, h2 {
+  font-family: 'Clicker Script', cursive;
+  line-height: 1.2;
 }
 
 h1 {
-  font-family: 'Clicker Script', cursive;
   font-size: 150px;
-  line-height: 1.2;
+}
+
+h2 {
+  font-size: 96px;
 }
 
 .hide {
   display: none !important;
 }
 
-/* Styles for the large jumbotron on homepage */
-.welcome-jumbo {
-  display: flex;
+.custom-nav {
+  background-color: transparent!important;
+}
+
+.nav-link {
+  color: var(--white);
+}
+
+.nav-link:hover {
+  color: var(--gold);
+}
+
+.bg-img {
   background-image: linear-gradient(0deg, var(--background-color), var(--background-color)), url(../images/sam-barber-ObAH4AmY6f4-unsplash.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+/* Styles for the large jumbotron on homepage */
+.welcome-jumbo {
+  display: flex;
+  background-color: transparent;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   color: var(--white);
-  height: 90vh;
+  height: 88vh;
   margin-bottom: 0px;
   border-radius: 0;
 }
@@ -73,15 +95,12 @@ h1 {
 /* Styles for the quote page */
 .random-quote {
   display: flex;
-  background-image: linear-gradient(0deg, var(--background-color), var(--background-color)), url(../images/sam-barber-ObAH4AmY6f4-unsplash.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: transparent;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   color: var(--white);
-  height: 90vh;
+  height: 88vh;
   margin-bottom: 0px;
   border-radius: 0;
 }
@@ -101,6 +120,18 @@ h1 {
 
 .author::before {
   content: "- ";
+}
+
+/* Style for search page */ 
+.search-quote {
+  display: flex;
+  background-color: transparent;
+  flex-direction: column;
+  align-items: center;
+  color: var(--white);
+  height: 88vh;
+  margin-bottom: 0px;
+  border-radius: 0;
 }
 
 /* Styles for the buttons */
@@ -168,10 +199,23 @@ h1 {
   transform: rotate(180deg);
 }
 
+/* Modal */
+.custom-modal {
+  background-color: var(--navy);
+}
+
+.ui-menu-item, #tags {
+  text-transform: capitalize;
+}
+
+.ui-autocomplete {
+  z-index: 1051 !important;
+}
+
 /* Footer Styling */
 
 .footer {
-  height: 5vh;
+  height: 4.05vh;
   overflow: hidden;
   align-items: center;
   justify-content: center;
@@ -186,5 +230,5 @@ h1 {
   color: var(--grey);
   background-color: var(--navy);
   text-align: center;
-  height: 5vh;
+  height: 4vh;
 }

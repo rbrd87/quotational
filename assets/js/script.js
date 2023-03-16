@@ -1,11 +1,16 @@
+const quotableUrl = "https://api.quotable.io/";
+
+var welcomeEl = $("#welcome")
+var randomQuoteEl = $("#random-quote")
+var searchQuoteEl = $("#search-quote")
+var contactEl = $("#contact")
+
 // Using math.floor to generate a random page number for the background image
-let pageNo = Math.floor(Math.random() * 20)
+let pageNo = Math.floor(Math.random() * 20);
 let searchQuery = "";
 
 // Sending a GET request to retrieve a random quote for the homescreen
 function randomQuote() {
-    const quotableUrl = "https://api.quotable.io/";
-
     $.ajax({
         url: quotableUrl + "random",
         method: "GET",
@@ -21,7 +26,7 @@ function randomQuote() {
 
         var quoteContent = randomQuoteData.content
         var quoteAuthor = randomQuoteData.author
-        
+
         var randomQuoteEl = $("#quote-content");
         randomQuoteEl.text(quoteContent)
 
@@ -48,28 +53,79 @@ function randomQuote() {
     });
 };
 
-randomQuote()
+function getTags() {
+    $.ajax({
+        url: quotableUrl + "tags",
+        method: "GET",
+    }).then(function (tagData) {
+        console.log(tagData)
 
-$("#get-random").on('click', function () {
-    var welcomeEl = $("#welcome")
-    var randomQuoteEl = $("#random-quote")
+        $(function () {
+            var tagNames = tagData.map(function (i) {
+                return i.name;
+            });
+            $("#tags").autocomplete({
+                source: tagNames
+            });
+        });
+    });
+}
 
+function tagSearch() {
+    var tagSelection = $("#tags").val()
+
+    $.ajax({
+        url: quotableUrl + "quotes/random?tags=" + tagSelection,
+        method: "GET",
+    }).then(function (tagData) {
+        console.log(tagData)
+
+        $(function () {
+            var tagNames = tagData.map(function (i) {
+                return i.name;
+            });
+            $("#tags").autocomplete({
+                source: tagNames
+            });
+        });
+    });
+};
+
+tagSearch()
+
+$(document).ready(function () {
+    randomQuote()
+    getTags()
+});
+
+$("#home").on('click', function () {
+    welcomeEl.removeClass("hide")
+    randomQuoteEl.addClass("hide")
+    searchQuoteEl.addClass("hide")
+    contactEl.addClass("hide")
+});
+
+$(".get-random").on('click', function () {
     welcomeEl.addClass("hide")
     randomQuoteEl.removeClass("hide")
+    searchQuoteEl.addClass("hide")
+    contactEl.addClass("hide")
 });
 
 $("#refresh").on("click", function () {
     randomQuote()
 })
 
-$("#home").on('click', function () {
-    var welcomeEl = $("#welcome")
-    var randomQuoteEl = $("#random-quote")
-    
+$(".get-search").on('click', function () {
+    welcomeEl.addClass("hide")
     randomQuoteEl.addClass("hide")
-    welcomeEl.removeClass("hide")
+    searchQuoteEl.removeClass("hide")
+    contactEl.addClass("hide")
 });
 
-$("#search").on('click', function () {
-    $('#myModal').modal('show')
+$(".get-contact").on('click', function () {
+    welcomeEl.addClass("hide")
+    randomQuoteEl.addClass("hide")
+    searchQuoteEl.addClass("hide")
+    contactEl.removeClass("hide")
 });
