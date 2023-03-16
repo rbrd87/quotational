@@ -1,53 +1,183 @@
 /* Sets the box size calculation to include padding/borders */
 * {
-    box-sizing: border-box;
-  }
-  
-  /* A list of variable for values repeadted several times */
-  :root {
-    --navy: #0a131f;
-    --gold: #b8811c;
-    --white: #fff;
-    --grey: #c0c0c0;
-    --background-color: #172536e7;
-  }
-  
-  /* Set the site font to Euclid Circular A */
-  body {
-    font-family: 'Euclid Circular A', sans-serif;
-    min-height: 100px;
-    overflow: hidden;
-  }
-  
-  /* Styles for the large jumbotron on homepage */
-  .custom-jumbotron {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-size: cover;
-    background-position: center;
-    color: var(--white);
-    height: 90vh;
-    margin-bottom: 0px;
-    border-radius: 0;
-  }
+  box-sizing: border-box;
+}
 
-  .footer {
-    height: 5vh;
-    overflow: hidden;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    width: cover;
-    background-color: var(--navy);
-    border-top: 10px solid var(--gold);
-  }
+/* A list of variable for values repeadted several times */
+:root {
+  --navy: #0a131f;
+  --gold: #b8811c;
+  --white: #fff;
+  --grey: #c0c0c0;
+  --background-color: #172536e7;
+}
 
-  .copyright {
-    font-size: 0.8rem;
-    color: var(--grey);
-    background-color: var(--navy);
-    text-align: center;
-    height: 5vh;
-  }
+html {
+  scroll-behavior: smooth;
+}
+
+/* Set the site font to Euclid Circular A */
+body {
+  font-family: 'Euclid Circular A', sans-serif;
+  min-height: 100px;
+  overflow: hidden;
+}
+
+h1 {
+  font-family: 'Clicker Script', cursive;
+}
+
+.hide {
+  display: none!important;
+}
+
+.bg-img {
+  background-image: linear-gradient(0deg, var(--background-color), var(--background-color)), url(../images/sam-barber-ObAH4AmY6f4-unsplash.jpg);
+  /* Set a specific height */
+  min-height: 400px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Styles for the large jumbotron on homepage */
+.welcome-jumbo {
+  display: flex;
+  background-color: transparent;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  height: 90vh;
+  margin-bottom: 0px;
+  border-radius: 0;
+}
+
+.lead {
+  margin: 30px 0 40px 0;
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--grey);
+}
+
+.fade-in {
+  animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.custom-btn {
+  display: inline-block;
+  padding: 0.9rem 1.8rem;
+  color: white;
+  border: 3px solid var(--gold);
+  position: relative;
+  background-color: transparent;
+  text-decoration: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.custom-btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--gold);
+  transform: translateX(-100%);
+  transition: all .5s;
+  z-index: -1;
+}
+
+.custom-btn:hover::before {
+  color: var(--navy);
+  transform: translateX(0);
+}
+
+.custom-btn:focus {
+  background-color: var(--gold);
+  border: 3px solid var(--gold);
+  box-shadow: 0px 0px 15px 0px #e69e1780;
+}
+
+.button-area {
+  display: flex;
+}
+
+.refresh-btn {
+  transition: all 0.8s;
+}
+
+.refresh-btn:hover {
+  transform: rotate(360deg);
+}
+
+.home-btn, .refresh-btn {
+  display: inline;
+  color: var(--white);
+  font-size: 28px;
+}
+
+.home-btn:hover, .refresh-btn:hover{
+  color: var(--gold);
+}
+
+.home-btn:focus, .refresh-btn:focus {
+  box-shadow: none;
+}
+
+.random-quote {
+  display: flex;
+  background-color: transparent;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  height: 90vh;
+  margin-bottom: 0px;
+  border-radius: 0;
+}
+
+.quote-content {
+  font-size: 28px;
+  font-weight: 300;
+}
+
+.author {
+  color: var(--grey);
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 300;
+  margin-bottom: 50px;
+}
+
+.author::before {
+  content: "- ";
+}
+
+.footer {
+  height: 5vh;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: cover;
+  background-color: var(--navy);
+  border-top: 10px solid var(--gold);
+}
+
+.copyright {
+  font-size: 0.8rem;
+  color: var(--grey);
+  background-color: var(--navy);
+  text-align: center;
+  height: 5vh;
+}

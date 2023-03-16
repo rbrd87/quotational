@@ -7,27 +7,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Clicker+Script&display=swap" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/euclid-circular-a" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="./assets/styles/style.css">
     <title>Quotational</title>
 </head>
 
-<body>
+<body class="bg-img">
 
-    <!-- Jumbotron -->
-    <section class="jumbotron text-center custom-jumbotron">
-        <h1 class="display-4">Hello, world!</h1>
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-        <hr class="my-4">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    <!-- Welcome Jumbotron -->
+    <section class="jumbotron text-center welcome-jumbo fade-in" id="welcome">
+        <h1 class="display-1">Quotational</h1>
+        <p class="lead">Thought-provoking quotes for conversations with family, friends and colleagues</p>
+        <a class="btn custom-btn" id="get-random" href="#">More Quotes</a>
     </section>
 
+    <!-- Random Quote Jumbotron -->
+    <section class="jumbotron random-quote hide fade-in" id="random-quote">
+        <p class="quote-content text-center" id="quote-content">Insert Quote Here</p>
+        <p class="author" id="author">Insert Quote Here</p>
+        <section class="button-area">
+            <a class="btn refresh-btn" id="refresh" href="#"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+            <a class="btn home-btn" id="home" href="#"><i class="fa fa-home" aria-hidden="true"></i></a>
+        </section>
+    </section>
+
+    <!-- Jumbotron -->
+    <section class="jumbotron text-center random-quote hide fade-in" id="author-search">
+        <p class="lead" id="quote-content">Thought-provoking quotes for conversations with family, friends and colleagues</p>
+        <a class="btn" href="#">More Quotes</a>
+    </section>
     <!-- Footer -->
     <footer>
         <div class="footer">
-            
+
         </div>
 
         <!-- Copyright -->
