@@ -231,7 +231,7 @@ h2 {
 .author-card {
   background-color: var(--navy);
   color: var(--white);
-  border-radius: 3px!important;
+  border-radius: 4px!important;
 }
 
 .card {
@@ -242,6 +242,12 @@ h2 {
 .card-text {
   color: var(--grey);
   font-weight: 300;
+}
+
+.author-img {
+  max-width: 350px;
+  height: auto;
+  margin-bottom: 10px;
 }
 
 /* Footer Styling */

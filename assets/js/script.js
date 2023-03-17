@@ -84,6 +84,7 @@ function getAuthors() {
             $("#author-btns").append(`<div class="card">
               <a href="#">
                 <div class="card-body author-card">
+                  <img src="${popularAuthors[i].img}" alt="${authorResults[i].name}" class="author-img">
                   <h5 class="card-title">${authorResults[i].name}</h5>
                   <p class="card-text">${authorResults[i].description}</p>
                 </div>
