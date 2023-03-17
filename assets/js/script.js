@@ -1,9 +1,9 @@
 const quotableUrl = "https://api.quotable.io/";
 
-var welcomeEl = $("#welcome")
-var randomQuoteEl = $("#random-quote")
-var searchQuoteEl = $("#search-quote")
-var contactEl = $("#contact")
+const welcomeEl = $("#welcome")
+const randomQuoteEl = $("#random-quote")
+const searchQuoteEl = $("#search-quote")
+const contactEl = $("#contact")
 
 // Using math.floor to generate a random page number for the background image
 let pageNo = Math.floor(Math.random() * 20);
@@ -24,13 +24,13 @@ function randomQuote() {
             searchQuery = randomQuoteData.tags[0]
         }
 
-        var quoteContent = randomQuoteData.content
-        var quoteAuthor = randomQuoteData.author
+        let quoteContent = randomQuoteData.content
+        let quoteAuthor = randomQuoteData.author
 
-        var randomQuoteEl = $("#quote-content");
-        randomQuoteEl.text(quoteContent)
+        const quoteEl = $("#quote-content");
+        quoteEl.text(quoteContent)
 
-        var authorEl = $("#author");
+        const authorEl = $("#author");
         authorEl.text(quoteAuthor)
 
         // Get random background image
@@ -61,41 +61,64 @@ function getTags() {
         console.log(tagData)
 
         $(function () {
-            var tagNames = tagData.map(function (i) {
+            let tagNames = tagData.map(function (i) {
                 return i.name;
             });
-            $("#tags").autocomplete({
-                source: tagNames
-            });
-        });
-    });
-}
 
-function tagSearch() {
-    var tagSelection = $("#tags").val()
-
-    $.ajax({
-        url: quotableUrl + "quotes/random?tags=" + tagSelection,
-        method: "GET",
-    }).then(function (tagData) {
-        console.log(tagData)
-
-        $(function () {
-            var tagNames = tagData.map(function (i) {
-                return i.name;
-            });
-            $("#tags").autocomplete({
-                source: tagNames
-            });
+            for (let i = 0; i < tagNames.length; i++) {
+                $("#category-btns").append(`<a href="#" class="btn category-btn">${tagNames[i]}</a>`);
+            };
         });
     });
 };
 
-tagSearch()
+function getAuthors() {
+    $.ajax({
+        url: quotableUrl + "authors?sortBy=quoteCount&order=desc",
+        method: "GET",
+    }).then(function (authorData) {
+        let authorResults = authorData.results
+        console.log(authorResults)
+
+        for (let i = 0; i < authorResults.length; i++) {
+            $("#author-btns").append(`<div class="card">
+              <a href="#">
+                <div class="card-body author-card">
+                  <h5 class="card-title">${authorResults[i].name}</h5>
+                  <p class="card-text">${authorResults[i].description}</p>
+                </div>
+              </a>
+            </div>`);
+        };
+    });
+};
+
+// function tagSearch() {
+//     let tagSelection = $("#tags").val()
+
+//     $.ajax({
+//         url: quotableUrl + "quotes/random?tags=" + tagSelection,
+//         method: "GET",
+//     }).then(function (tagData) {
+//         console.log(tagData)
+
+//         $(function () {
+//             let tagNames = tagData.map(function (i) {
+//                 return i.name;
+//             });
+//             $("#tags").autocomplete({
+//                 source: tagNames
+//             });
+//         });
+//     });
+// };
+
+// tagSearch()
 
 $(document).ready(function () {
     randomQuote()
     getTags()
+    getAuthors()
 });
 
 $("#home").on('click', function () {
