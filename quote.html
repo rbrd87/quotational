@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.png">
+    <link rel="stylesheet" href="./assets/styles/quote-styles.css">
     <link rel="stylesheet" href="./assets/styles/style.css">
     <title>Quotational</title>
 </head>
@@ -40,26 +41,10 @@
         </nav>
     </header>
 
-    <!-- Welcome Jumbotron -->
-    <section class="jumbotron text-center welcome-jumbo" id="welcome">
-        <img src="./assets/images/quotational-logo-large.png" alt="quotational-logo-large" class="fade-in" />
-        <p class="lead fade-in">Thought-provoking quotes for conversations with family, friends and colleagues</p>
-        <div class="container search-area">
-            <div class="row justify-content-center">
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                    <input id="search-input" type="text" class="form-control text-center" placeholder="Search for a quote or author">
-                    <p class="lead warning-message hide">No results for this search. Please enter something else and try again</p>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <button class="btn custom-btn" type="button" id="search-btn">Search</button>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <button class="btn custom-btn get-random" type="button">Random Quote</button>
-                </div>
-            </div>
-        </div>
+    <!-- Quote Area -->
+    <section class="jumbotron text-center quote-jumbo" id="quote">
+        <h1 class="hide" id="search-term-title"></h1>
+        <div id="quote-snippets"></div>
     </section>
 
     <!-- Footer -->
