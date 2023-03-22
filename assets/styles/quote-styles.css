@@ -8,7 +8,7 @@
 .quote-jumbo {
     background-color: transparent;
     color: var(--white);
-    min-height: 85.95vh;
+    min-height: 87vh;
     padding: 0;
     border-radius: 0;
 }
@@ -20,7 +20,7 @@
     align-items: center;
     justify-content: center;
     color: var(--white);
-    min-height: 85.95vh;
+    min-height: 87vh;
     margin-bottom: 0px;
     border-radius: 0;
 }
@@ -41,6 +41,22 @@
     margin: 30px 0;
 }
 
+#author-excerpt {
+    font-style: italic;
+    color: var(--grey);
+}
+
+#see-more a {
+    font-style: normal;
+    color: var(--white);
+    margin-left: 5px;
+}
+
+#see-more a:hover {
+    color: var(--gold);
+    text-decoration: none;
+}
+
 #quote-snippets {
     display: flex;
     flex-wrap: wrap;
@@ -51,7 +67,7 @@
     max-width: 50%;
     color: var(--white);
     background-color: transparent;
-    border: 1px solid var(--white) !important;
+    border: 1px solid var(--grey) !important;
     margin: 10px;
 }
 

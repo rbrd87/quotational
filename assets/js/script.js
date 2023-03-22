@@ -71,6 +71,7 @@ $(".get-random").on('click', function (event) {
     // Removes any search terms held in local storage in order for the quote page to show the random quote 
     localStorage.removeItem("searchTerm");
     localStorage.removeItem("quoteData");
+    localStorage.removeItem("authorInfo");
 
     // Calls the above function
     randomQuote();
@@ -89,7 +90,3 @@ $("#search-input").on("keyup", function (event) {
         $("#search-btn").click();
     };
 });
-
-var bigObject = { "count": 0, "totalCount": 0, "page": 1, "totalPages": 0, "lastItemIndex": null, "results": [] }
-
-bigObject

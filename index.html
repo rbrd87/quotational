@@ -33,16 +33,13 @@
                 <li class="nav-item">
                     <a class="nav-link get-random" href="#random-quote">Random Quote</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link get-contact" href="#contact">Contact</a>
-                </li>
             </ul>
         </nav>
     </header>
 
     <!-- Welcome Jumbotron -->
     <section class="jumbotron text-center welcome-jumbo" id="welcome">
-        <img src="./assets/images/quotational-logo-large.png" alt="quotational-logo-large" class="fade-in" />
+        <img src="./assets/images/quotational-logo-large.png" id="logo" alt="quotational-logo-large" class="fade-in" />
         <p class="lead fade-in">Thought-provoking quotes for conversations with family, friends and colleagues</p>
         <div class="container search-area">
             <div class="row justify-content-center">
@@ -50,13 +47,13 @@
                     <input id="search-input" type="text" class="form-control text-center" placeholder="Search for a quote or author">
                 </div>
             </div>
-            <div class="row justify-content-center">
+            <div class="row message-area justify-content-center">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <p class="lead no-results-message hide">No results for this search. Please enter something else and try again</p>
                     <p class="lead empty-search-message hide">Please enter a search term and try again</p>
                 </div>
             </div>
-            <div class="row justify-content-center">
+            <div class="row btn-area justify-content-center">
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <button class="btn custom-btn" type="button" id="search-btn">Search</button>
                 </div>
@@ -65,6 +62,10 @@
                 </div>
             </div>
         </div>
+    </section>
+
+    <section class="jumbotron text-center tags-jumbo" id="tags">
+        
     </section>
 
     <!-- Footer -->

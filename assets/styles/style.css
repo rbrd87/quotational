@@ -1,8 +1,3 @@
-/* Sets the box size calculation to include padding/borders */
-* {
-  box-sizing: border-box;
-}
-
 /* A list of variable for values repeadted several times */
 :root {
   --navy: #0a161f;
@@ -16,14 +11,18 @@ html {
   scroll-behavior: smooth;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 /* Set the site font to Euclid Circular A */
 body {
   background-color: var(--navy);
   font-family: 'Euclid Circular A', sans-serif;
-  min-height: 100px;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-family: 'Clicker Script', cursive;
   line-height: 1.2;
 }
@@ -41,7 +40,7 @@ h2 {
 }
 
 .custom-nav {
-  background-color: transparent!important;
+  background-color: transparent !important;
 }
 
 .nav-link {
@@ -67,7 +66,7 @@ h2 {
   align-items: center;
   justify-content: center;
   color: var(--white);
-  min-height: 90vh;
+  min-height: 73vh;
   padding: 0;
   border-radius: 0;
 }
@@ -77,6 +76,11 @@ h2 {
   font-size: 18px;
   font-weight: 300;
   color: var(--grey);
+}
+
+#logo {
+  max-width: 85%;
+  height: auto;
 }
 
 .fade-in {
@@ -97,7 +101,8 @@ h2 {
   margin-bottom: 50px;
 }
 
-.no-results-message, .empty-search-message {
+.no-results-message,
+.empty-search-message {
   margin-top: -10px;
   background-color: #d41434c5;
   color: var(--white);
@@ -159,10 +164,14 @@ h2 {
   content: "- ";
 }
 
+/* Tags Jumbotron */
+.tags-jumbo {
+  background-color: transparent;
+}
 
 /* Footer Styling */
 .footer {
-  height: 5vh;
+  height: 4vh;
   overflow: hidden;
   align-items: center;
   justify-content: center;
@@ -177,5 +186,38 @@ h2 {
   color: var(--grey);
   background-color: var(--navy);
   text-align: center;
-  height: 4vh;
+  height: 5vh;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 767px) {
+  .welcome-jumbo {
+    min-height: 80vh;
+  }
+}
+
+@media only screen and (max-width: 572px) {
+  .nav-link {
+    padding: 0 0 0 10px;
+  }
+
+  .welcome-jumbo {
+    min-height: 80vh;
+  }
+
+  .lead {
+    font-size: 16px;
+  }
+
+  .btn-area {
+    flex-wrap: nowrap;
+  }
+
+  .custom-btn {
+    width: 150px;
+  }
+
+  .footer {
+    width: 100%;
+  }
 }
