@@ -66,8 +66,23 @@ function getTags() {
             });
 
             for (let i = 0; i < tagNames.length; i++) {
-                $("#category-btns").append(`<a href="#" class="btn category-btn">${tagNames[i]}</a>`);
+                $("#category-btns").append(`<a href="#" class="btn category-btn tag-btn">${tagNames[i]}</a>`);
             };
+        });
+
+        $(".tag-btn").on('click', function () {
+
+            var tagSelection = $(this).text();
+
+            $.ajax({
+                url: quotableUrl + "quotes/random?tags=" + tagSelection,
+                method: "GET",
+            }).then(function (tagData) {
+                console.log("This worked")
+                console.log(tagData)
+        
+            });
+
         });
     });
 };
@@ -93,28 +108,6 @@ function getAuthors() {
         };
     });
 };
-
-// function tagSearch() {
-//     let tagSelection = $("#tags").val()
-
-//     $.ajax({
-//         url: quotableUrl + "quotes/random?tags=" + tagSelection,
-//         method: "GET",
-//     }).then(function (tagData) {
-//         console.log(tagData)
-
-//         $(function () {
-//             let tagNames = tagData.map(function (i) {
-//                 return i.name;
-//             });
-//             $("#tags").autocomplete({
-//                 source: tagNames
-//             });
-//         });
-//     });
-// };
-
-// tagSearch()
 
 $(document).ready(function () {
     randomQuote()

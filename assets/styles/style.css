@@ -245,8 +245,10 @@ h2 {
 }
 
 .author-img {
-  max-width: 350px;
-  height: auto;
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  object-position: center;
   margin-bottom: 10px;
 }
 
