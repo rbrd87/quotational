@@ -1,24 +1,24 @@
 const quotableUrl = "https://api.quotable.io/";
 
 function searchQuote(searchTerm) {
-    // Ajax call to search for a quote from the users input
-    $.ajax({
-        method: 'GET',
-        url: quotableUrl + "search/quotes?query=" + searchTerm
-    }).then(function (quoteData) {
-        console.log(quoteData)
+    var noResultsEl = $(".no-results-message")
 
-        // Stored the quoteData object into local storage
-        localStorage.setItem("quoteData", JSON.stringify(quoteData));
-        var warningMessageEl = $(".warning-message")
-        // Validation incase no quotes are returned
-        if (quoteData.count === 0) {
-            console.log("Invalid search")
-            warningMessageEl.removeClass("hide")
-        } else {
-            window.location = './quote.html';
-        }
-    })
+        $.ajax({
+            method: 'GET',
+            url: quotableUrl + "search/quotes?query=" + searchTerm
+        }).then(function (quoteData) {
+            console.log(quoteData)
+
+            // Stored the quoteData object into local storage
+            localStorage.setItem("quoteData", JSON.stringify(quoteData));
+            // Validation incase no quotes are returned
+            if (quoteData.count === 0) {
+                console.log("Invalid search")
+                noResultsEl.removeClass("hide")
+            } else {
+                window.location = './quote.html';
+            }
+        })
 };
 
 function randomQuote() {

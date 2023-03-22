@@ -9,7 +9,7 @@
   --gold: #b8811c;
   --white: #fff;
   --grey: #c0c0c0;
-  --background-color: #20394de7;
+  --background-color: #183044f1;
 }
 
 html {
@@ -97,7 +97,7 @@ h2 {
   margin-bottom: 50px;
 }
 
-.warning-message {
+.no-results-message, .empty-search-message {
   margin-top: -10px;
   background-color: #d41434c5;
   color: var(--white);

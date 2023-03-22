@@ -1,7 +1,10 @@
-// Getting the cocktail data from local storage and storing into a new variable
-var quoteDataObject = JSON.parse(localStorage.getItem("quoteData"));
-var randomQuoteDataObject = JSON.parse(localStorage.getItem("randomQuoteData"));
-var searchTermQuery = localStorage.getItem("searchTerm");
+// Getting the quote data from local storage and storing into a new variable
+let quoteDataObject = JSON.parse(localStorage.getItem("quoteData"));
+let randomQuoteDataObject = JSON.parse(localStorage.getItem("randomQuoteData"));
+let searchTermQuery = localStorage.getItem("searchTerm");
+
+// Using math.floor to generate a random page number for the background image
+let pageNo = Math.floor(Math.random() * 20);
 
 function populateQuotes() {
     console.log(quoteDataObject)
@@ -12,7 +15,7 @@ function populateQuotes() {
     var searchTermTitleEl = $("#search-term-title");
     searchTermTitleEl.text(searchTermQuery);
 
-    if (searchTermQuery !== null) {
+    if (quoteDataObject !== null) {
         for (let i = 0; i < 10; i++) {
             searchTermTitleEl.removeClass("hide");
             quoteSnippetsEl.append(`<div class="card">
@@ -22,7 +25,7 @@ function populateQuotes() {
               </div>
             </div>`);
         };
-    } else {
+    } else if (randomQuoteDataObject !== null) {
         quoteEl.removeClass("quote-jumbo")
         quoteEl.addClass("random-quote")
         quoteEl.append(`<p class="quote-content text-center fade-in" id="quote-content">${randomQuoteDataObject.content}</p>
@@ -32,8 +35,35 @@ function populateQuotes() {
         </section>`)
     }
 
+    // // Get random background image
+    // const unsplashUrl = "https://api.unsplash.com/";
+    // const apiKey = "uNOwDznJR7H5oeC9LQPuU_EfeLY4DPlkGjR3NrpXOP0";
+    // const apiCall = unsplashUrl + "search/photos?query=nature" + "&page=" + pageNo + "&client_id=" + apiKey;
+
+    // $.ajax({
+    //     url: apiCall,
+    //     method: "GET",
+    // }).then(function (pictureData) {
+    //     console.log(apiCall)
+    //     console.log(pictureData)
+
+    //     if (pictureData.results.length === 0) {
+    //         console.log("No background images to match the search query")
+    //     } else {
+
+    //     var randomImg = Math.floor(Math.random() * 10);
+
+    //     var backgroundImgEl = $(".quote-bg-img");
+    //     backgroundImgEl.css('background-image', 'linear-gradient(0deg, var(--background-color), var(--background-color)), url(' + pictureData.results[randomImg].urls.regular + ')');
+    // }});
 }
 
 $(document).ready(function () {
     populateQuotes();
 });
+
+var pictureObject = {
+    "total": 80,
+    "total_pages": 8,
+    "results": []
+}
