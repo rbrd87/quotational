@@ -1,24 +1,35 @@
 const quotableUrl = "https://api.quotable.io/";
+const noResultsEl = $(".no-results-message");
+const emptySearchEl = $(".empty-search-message");
 
 function searchQuote(searchTerm) {
-    var noResultsEl = $(".no-results-message")
+    noResultsEl.addClass("hide")
+    emptySearchEl.addClass("hide")
 
-        $.ajax({
-            method: 'GET',
-            url: quotableUrl + "search/quotes?query=" + searchTerm
-        }).then(function (quoteData) {
-            console.log(quoteData)
+    $.ajax({
+        method: 'GET',
+        url: quotableUrl + "search/quotes?query=" + searchTerm,
+        success: function (quoteData) {
+            // If the call is succesful the following will be executed
+            console.log(quoteData);
 
-            // Stored the quoteData object into local storage
-            localStorage.setItem("quoteData", JSON.stringify(quoteData));
             // Validation incase no quotes are returned
             if (quoteData.count === 0) {
                 console.log("Invalid search")
                 noResultsEl.removeClass("hide")
             } else {
+                // Stored the quoteData object into local storage
+                localStorage.setItem("quoteData", JSON.stringify(quoteData));
+
                 window.location = './quote.html';
             }
-        })
+        },
+        error: function ajaxError(errorData) {
+            // If the call errors the following will be executed
+            console.error('Error: ', errorData.responseText);
+            emptySearchEl.removeClass("hide")
+        }
+    })
 };
 
 function randomQuote() {
@@ -59,6 +70,7 @@ $(".get-random").on('click', function (event) {
 
     // Removes any search terms held in local storage in order for the quote page to show the random quote 
     localStorage.removeItem("searchTerm");
+    localStorage.removeItem("quoteData");
 
     // Calls the above function
     randomQuote();
@@ -77,3 +89,7 @@ $("#search-input").on("keyup", function (event) {
         $("#search-btn").click();
     };
 });
+
+var bigObject = { "count": 0, "totalCount": 0, "page": 1, "totalPages": 0, "lastItemIndex": null, "results": [] }
+
+bigObject

@@ -9,7 +9,6 @@
     background-color: transparent;
     color: var(--white);
     min-height: 85.95vh;
-    margin: 0;
     padding: 0;
     border-radius: 0;
 }
@@ -27,13 +26,17 @@
 }
 
 #search-term-title::before {
-    font-family: 'Euclid Circular A', sans-serif;
-    font-size: 34px;
     content: "Showing results for: ";
+    color: var(--white);
+    font-family: 'Euclid Circular A', sans-serif;
+    font-size: 28px;
+    font-weight: 300!important;
+    margin-right: 20px;
 }
 
 #search-term-title {
     text-transform: capitalize;
+    color: var(--gold);
     font-size: 56px;
     margin: 30px 0;
 }
@@ -56,6 +59,27 @@
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
+    align-items: flex-end;
+}
+
+.quote-text {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.author-text::before {
+    content: "- ";
+}
+
+.author-text {
+    color: var(--grey);
+    max-width: fit-content;
+    font-style: italic;
+}
+
+.author-text:hover {
+    color: var(--gold);
+    text-decoration: none;
 }
 
 .button-area {

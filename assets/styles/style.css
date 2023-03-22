@@ -6,10 +6,10 @@
 /* A list of variable for values repeadted several times */
 :root {
   --navy: #0a161f;
-  --gold: #b8811c;
+  --gold: #cf9528;
   --white: #fff;
   --grey: #c0c0c0;
-  --background-color: #183044f1;
+  --background-color: #183044d5;
 }
 
 html {
@@ -18,6 +18,7 @@ html {
 
 /* Set the site font to Euclid Circular A */
 body {
+  background-color: var(--navy);
   font-family: 'Euclid Circular A', sans-serif;
   min-height: 100px;
 }
@@ -66,8 +67,7 @@ h2 {
   align-items: center;
   justify-content: center;
   color: var(--white);
-  min-height: 85.95vh;
-  margin: 0;
+  min-height: 90vh;
   padding: 0;
   border-radius: 0;
 }
@@ -162,7 +162,7 @@ h2 {
 
 /* Footer Styling */
 .footer {
-  height: 4.05vh;
+  height: 5vh;
   overflow: hidden;
   align-items: center;
   justify-content: center;
