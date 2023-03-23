@@ -4,7 +4,8 @@
   --gold: #cf9528;
   --white: #fff;
   --grey: #c0c0c0;
-  --background-color: #183044d5;
+  --background-color: #183044ec;
+  --card-background: #f7f7f70e;
 }
 
 html {
@@ -66,7 +67,7 @@ h2 {
   align-items: center;
   justify-content: center;
   color: var(--white);
-  min-height: 73vh;
+  min-height: 85vh;
   padding: 0;
   border-radius: 0;
 }
@@ -165,8 +166,21 @@ h2 {
 }
 
 /* Tags Jumbotron */
-.tags-jumbo {
-  background-color: transparent;
+#tags {
+  margin-top: 200px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#tags a {
+  color: var(--grey);
+}
+
+#tags a:hover {
+  color: var(--gold);
+  text-decoration: none;
 }
 
 /* Footer Styling */
@@ -203,6 +217,10 @@ h2 {
 
   .welcome-jumbo {
     min-height: 80vh;
+  }
+
+  #tags {
+    margin-top: 100px;
   }
 
   .lead {

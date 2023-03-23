@@ -27,17 +27,16 @@
 
 #search-term-title::before {
     content: "Showing results for: ";
-    color: var(--white);
+    color: var(--grey);
     font-family: 'Euclid Circular A', sans-serif;
     font-size: 28px;
-    font-weight: 300!important;
     margin-right: 20px;
 }
 
 #search-term-title {
     text-transform: capitalize;
     color: var(--gold);
-    font-size: 56px;
+    font-size: 60px;
     margin: 30px 0;
 }
 
@@ -66,8 +65,8 @@
 .card {
     max-width: 50%;
     color: var(--white);
-    background-color: transparent;
-    border: 1px solid var(--grey) !important;
+    background-color: var(--card-background);
+    border: 1px solid var(--background-color) !important;
     margin: 10px;
 }
 

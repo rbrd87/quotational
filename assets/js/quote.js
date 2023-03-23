@@ -61,7 +61,9 @@ function populateQuotes() {
 
     if (authorInfoObject !== null) {
         searchTermTitleEl.after(`<p id="author-excerpt">${authorInfoObject}<span id="see-more"><a href="https://en.wikipedia.org/wiki/${authorNameQuery}" target=”_blank”>- View on Wikipedia</a></span></p>`)
-    }
+    };
+
+    getRandomBackground();
 };
 
 function getRandomBackground() {
@@ -127,8 +129,29 @@ function wikiAuthorInfo(authorName) {
             console.error('Error: ', errorData.responseText);
         }
     });
-}
+};
+
+function searchTags(tagName) {
+    console.log(tagName)
+
+    $.ajax({
+        method: 'GET',
+        url: quotableUrl + "search/quotes?query=" + tagName + "&fields=tags",
+        success: function (tagQuoteData) {
+            // If the call is succesful the following will be executed
+            console.log(tagQuoteData);
+
+            localStorage.setItem("quoteData", JSON.stringify(tagQuoteData));
+            window.location = './quote.html';
+        },
+        error: function ajaxError(errorData) {
+            // If the call errors the following will be executed
+            console.error('Error: ', errorData.responseText);
+        }
+    })
+};
 
 $(document).ready(function () {
+    getTags()
     populateQuotes();
 });

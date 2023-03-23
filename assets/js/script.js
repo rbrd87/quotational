@@ -48,6 +48,36 @@ function randomQuote() {
     })
 };
 
+function getTags() {
+    $.ajax({
+        method: 'GET',
+        url: quotableUrl + "tags?sortBy=quoteCount"
+    }).then(function (tagData) {
+        console.log(tagData)
+
+        $(function () {
+            let tagNames = tagData.map(function (i) {
+                return i.name;
+            });
+
+            for (let i = 0; i < 10; i++) {
+                $("#tags").append(`<a href="#" class="btn btn-link tag-btn">${tagNames[i]}</a>`);
+            };
+
+            $(".tag-btn").on('click', function (event) {
+                event.preventDefault();
+
+                const tagName = $(this).text();
+
+                localStorage.setItem("authorName", tagName);
+                localStorage.setItem("searchTerm", tagName);
+
+                searchTags(tagName);
+            });
+        });
+    });
+};
+
 // Event listener for when the user clicks on the search button
 $("#search-btn").on('click', function (event) {
     event.preventDefault();
