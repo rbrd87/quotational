@@ -6,7 +6,7 @@ const noResultsEl = $(".no-results-message");
 const emptySearchEl = $(".empty-search-message");
 
 // Function to search for a quote using the users input
-function searchQuote(searchTerm) {
+const searchQuote = (searchTerm) => {
     // Hides the error messages when the search begins
     noResultsEl.addClass("hide")
     emptySearchEl.addClass("hide")
@@ -39,7 +39,7 @@ function searchQuote(searchTerm) {
 };
 
 // Function to get a random quote for the user
-function randomQuote() {
+const randomQuote = () => {
     // Ajax call to search for a quote from the random endpoint
     $.ajax({
         method: 'GET',
@@ -54,7 +54,7 @@ function randomQuote() {
 };
 
 // Function to get the tags and populate the top 10  with the highest quote count on the homepage
-function getTags() {
+const getTags = () => {
     $.ajax({
         method: 'GET',
         url: quotableUrl + "tags?sortBy=quoteCount"

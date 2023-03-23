@@ -67,7 +67,7 @@
 }
 
 .card {
-    max-width: 50%;
+    max-width: 45%;
     color: var(--white);
     background-color: var(--card-background);
     border: 1px solid var(--background-color) !important;

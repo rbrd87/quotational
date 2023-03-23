@@ -9,7 +9,7 @@ let authorNameQuery = localStorage.getItem("authorName");
 let pageNo = Math.floor(Math.random() * 20);
 
 // Function to populate the Quotes page
-function populateQuotes() {
+const populateQuotes = () => {
     const quoteEl = $("#quote");
     const quoteSnippetsEl = $("#quote-snippets");
     const searchTermTitleEl = $("#search-term-title");
@@ -73,7 +73,7 @@ function populateQuotes() {
 };
 
 // Function to generate a new random background when the page is refreshed
-function getRandomBackground() {
+const getRandomBackground = () => {
     // Get random background image
     const unsplashUrl = "https://api.unsplash.com/";
     const apiKey = "uNOwDznJR7H5oeC9LQPuU_EfeLY4DPlkGjR3NrpXOP0";
@@ -96,7 +96,7 @@ function getRandomBackground() {
 };
 
 // Function to search for the author, which is called when a user clicks on the Authors Name
-function searchAuthor(authorName) {
+const searchAuthor = (authorName) => {
     console.log(authorName)
 
     $.ajax({
@@ -116,7 +116,7 @@ function searchAuthor(authorName) {
 };
 
 // Function to perform a wiki call against the authors name to populate an excerpt for the said author
-function wikiAuthorInfo(authorName) {
+const wikiAuthorInfo = (authorName) => {
     console.log("Wiki Call")
     // Get Author Info from Wikipedia
     const wikiUrl = "https://en.wikipedia.org/w/rest.php/v1/search/page?q=";
@@ -139,7 +139,7 @@ function wikiAuthorInfo(authorName) {
 };
 
 // Function to perform a search against the tag endpoint which returns all quotes that have that tag
-function searchTags(tagName) {
+const searchTags = (tagName) => {
     console.log(tagName)
 
     $.ajax({
