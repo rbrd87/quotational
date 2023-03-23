@@ -87,6 +87,7 @@
 }
 
 .author-text {
+    font-size: 20px;
     color: var(--grey);
     max-width: fit-content;
     font-style: italic;

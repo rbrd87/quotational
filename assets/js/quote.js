@@ -1,4 +1,4 @@
-// Getting the quote data from local storage and storing into a new variable
+// Getting the data from local storage and storing into a new variable
 let quoteDataObject = JSON.parse(localStorage.getItem("quoteData"));
 let randomQuoteDataObject = JSON.parse(localStorage.getItem("randomQuoteData"));
 let authorInfoObject = JSON.parse(localStorage.getItem("authorInfo"));
@@ -8,13 +8,16 @@ let authorNameQuery = localStorage.getItem("authorName");
 // Using math.floor to generate a random page number for the background image
 let pageNo = Math.floor(Math.random() * 20);
 
+// Function to populate the Quotes page
 function populateQuotes() {
     const quoteEl = $("#quote");
     const quoteSnippetsEl = $("#quote-snippets");
     const searchTermTitleEl = $("#search-term-title");
     searchTermTitleEl.text(searchTermQuery);
 
+    // If the quoteDataObject isn't null, it will populate the quote cards 
     if (quoteDataObject !== null) {
+        // For loop to create a card for each quote
         for (let i = 0; i < quoteDataObject.count; i++) {
             searchTermTitleEl.removeClass("hide");
             quoteSnippetsEl.append(`<div class="card fade-in">
@@ -24,28 +27,30 @@ function populateQuotes() {
               </div>
             </div>`);
         };
-
+        // On-click event to use the clicked Author and then perform a search against the Authors name
         $(".author-text").on('click', function (event) {
             event.preventDefault();
 
             const authorName = $(this).text();
 
+            // Storing the Author name in the local storage
             localStorage.setItem("authorName", authorName);
             localStorage.setItem("searchTerm", authorName);
 
             searchAuthor(authorName);
             wikiAuthorInfo(authorName);
         });
+    // If the randomQuoteDataObject isn't null, it will populate the random quote view with the refresh button    
     } else if (randomQuoteDataObject !== null) {
         quoteEl.removeClass("quote-jumbo");
         quoteEl.addClass("random-quote");
+        // Creates the quote and author view
         quoteEl.append(`<p class="quote-content text-center fade-in" id="quote-content">${randomQuoteDataObject.content}</p>
         <button class="btn btn-link author-text" id="author-search">${randomQuoteDataObject.author}</button>
-        <!--<p class="author fade-in" id="author">${randomQuoteDataObject.author}</p>-->
         <section class="button-area fade-in">
             <a class="btn refresh-btn" id="refresh" href="#" onclick="randomQuote()"><i class="fa fa-refresh" aria-hidden="true" title="Refresh Quote"></i></a>
         </section>`);
-
+        // On-click event to use the clicked Author and then perform a search against the Authors name
         $(".author-text").on('click', function (event) {
             event.preventDefault();
 
@@ -58,14 +63,16 @@ function populateQuotes() {
             wikiAuthorInfo(authorName);
         });
     };
-
+    // If the authorInfoObject isn't null, it will span a link to the wikipedia page of the author
     if (authorInfoObject !== null) {
         searchTermTitleEl.after(`<p id="author-excerpt">${authorInfoObject}<span id="see-more"><a href="https://en.wikipedia.org/wiki/${authorNameQuery}" target=”_blank”>- View on Wikipedia</a></span></p>`)
     };
 
+    // Calls the random background function everytime the page is refreshed
     getRandomBackground();
 };
 
+// Function to generate a new random background when the page is refreshed
 function getRandomBackground() {
     // Get random background image
     const unsplashUrl = "https://api.unsplash.com/";
@@ -76,20 +83,19 @@ function getRandomBackground() {
         url: apiCall,
         method: "GET",
     }).then(function (pictureData) {
-        console.log(apiCall);
-        console.log(pictureData);
-
         if (pictureData.results.length === 0) {
             console.log("No background images to match the search query");
         } else {
 
         let randomImg = Math.floor(Math.random() * 10);
 
+        // Sets the background img to the one retrieved by the API
         const backgroundImgEl = $(".quote-bg-img");
         backgroundImgEl.css('background-image', 'linear-gradient(0deg, var(--background-color), var(--background-color)), url(' + pictureData.results[randomImg].urls.regular + ')');
     }});
 };
 
+// Function to search for the author, which is called when a user clicks on the Authors Name
 function searchAuthor(authorName) {
     console.log(authorName)
 
@@ -109,6 +115,7 @@ function searchAuthor(authorName) {
     })
 };
 
+// Function to perform a wiki call against the authors name to populate an excerpt for the said author
 function wikiAuthorInfo(authorName) {
     console.log("Wiki Call")
     // Get Author Info from Wikipedia
@@ -131,6 +138,7 @@ function wikiAuthorInfo(authorName) {
     });
 };
 
+// Function to perform a search against the tag endpoint which returns all quotes that have that tag
 function searchTags(tagName) {
     console.log(tagName)
 
@@ -151,6 +159,7 @@ function searchTags(tagName) {
     })
 };
 
+// Populates the tags and the quotes page when the document is ready
 $(document).ready(function () {
     getTags()
     populateQuotes();
