@@ -3,8 +3,6 @@
 ![MIT License  badge](https://img.shields.io/static/v1?label=license&message=mit&color=green&style=flat)
 
 ## Table of Contents
-- [Quotational](#quotational)
-  - [Table of Contents](#table-of-contents)
   - [Description](#description)
   - [Installation](#installation)
   - [Usage](#usage)
@@ -32,6 +30,7 @@ Clone the repository onto your machine and open with VS Code or similar program
 ## Usage 
 See the demo video below:
 
+https://user-images.githubusercontent.com/90259065/227189041-78d4aa8e-df9d-4280-ae2c-8ea948f8a284.mp4
 
 Here is a screenshot of the homepage
 ![homepage screenshot](./assets/images/screenshots/full-screenshot.jpg) 
