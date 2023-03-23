@@ -57,4 +57,4 @@ For any questions or further information please get in touch via GitHub or email
 - Email - [rochellembradley@gmail.com](mailto:rochellembradley@gmail.com)
 
 ## License 
-This project is licensed under the terms of [MIT License ](../LICENSE)
+This project is licensed under the terms of [MIT License](https://github.com/rbrd87/quotational/blob/main/LICENSE)
