@@ -1,3 +1,4 @@
+/* Default background styling for the quote page */
 .quote-bg-img {
     background-image: linear-gradient(0deg, var(--background-color), var(--background-color)), url(../images/sam-barber-ObAH4AmY6f4-unsplash.jpg);
     background-position: center;
@@ -5,6 +6,7 @@
     background-size: cover;
   }
 
+/* Styling for the quote jumbo */
 .quote-jumbo {
     background-color: transparent;
     color: var(--white);
@@ -13,6 +15,7 @@
     border-radius: 0;
 }
 
+/* Different styling was required when showing a single quote */
 .random-quote {
     display: flex;
     background-color: transparent;
@@ -56,6 +59,7 @@
     text-decoration: none;
 }
 
+/* QUote cards styling */
 #quote-snippets {
     display: flex;
     flex-wrap: wrap;
@@ -98,6 +102,7 @@
     text-decoration: none;
 }
 
+/* Refresh button styling */
 .button-area {
     display: flex;
 }

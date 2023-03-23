@@ -7,13 +7,13 @@
   --background-color: #183044ec;
   --card-background: #f7f7f70e;
 }
+/* To remove the scrollbar from the side, but kept the scroll functionality */
+::-webkit-scrollbar {
+  display: none;
+}
 
 html {
   scroll-behavior: smooth;
-}
-
-::-webkit-scrollbar {
-  display: none;
 }
 
 /* Set the site font to Euclid Circular A */
@@ -22,6 +22,7 @@ body {
   font-family: 'Euclid Circular A', sans-serif;
 }
 
+/* Set the header to Clicker Script */
 h1,
 h2 {
   font-family: 'Clicker Script', cursive;
@@ -40,6 +41,8 @@ h2 {
   display: none !important;
 }
 
+/* Navigation Styling */
+
 .custom-nav {
   background-color: transparent !important;
 }
@@ -52,6 +55,7 @@ h2 {
   color: var(--gold);
 }
 
+/* Default background image */ 
 .bg-img {
   background-image: linear-gradient(0deg, var(--background-color), var(--background-color)), url(../images/sam-barber-ObAH4AmY6f4-unsplash.jpg);
   background-position: center;
@@ -88,6 +92,7 @@ h2 {
   animation: fadeIn 3s;
 }
 
+/* Keyframes used to create a fade in effect */
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -102,6 +107,7 @@ h2 {
   margin-bottom: 50px;
 }
 
+/* Error messages */
 .no-results-message,
 .empty-search-message {
   margin-top: -10px;
